@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF393219A14E50047CB7F /* MainViewController.swift */; };
+		CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */; };
 		CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDED92A219968E200CCDDB3 /* AppDelegate.swift */; };
-		CDDED92D219968E200CCDDB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDED92C219968E200CCDDB3 /* ViewController.swift */; };
 		CDDED930219968E200CCDDB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDED92E219968E200CCDDB3 /* Main.storyboard */; };
 		CDDED932219968E200CCDDB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDED931219968E200CCDDB3 /* Assets.xcassets */; };
 		CDDED935219968E300CCDDB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD6AF393219A14E50047CB7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CD6AF396219A1FAA0047CB7F /* Jam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jam-Bridging-Header.h"; sourceTree = "<group>"; };
+		CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CD6AF398219A1FAA0047CB7F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CDDED927219968E200CCDDB3 /* Jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDED92A219968E200CCDDB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDDED92C219968E200CCDDB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDDED92F219968E200CCDDB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDDED931219968E200CCDDB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDDED934219968E300CCDDB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +39,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD6AF395219A1F8C0047CB7F /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CD6AF398219A1FAA0047CB7F /* SWRevealViewController.h */,
+				CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */,
+				CD6AF396219A1FAA0047CB7F /* Jam-Bridging-Header.h */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		CDDED91E219968E200CCDDB3 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +68,9 @@
 		CDDED929219968E200CCDDB3 /* Jam */ = {
 			isa = PBXGroup;
 			children = (
+				CD6AF395219A1F8C0047CB7F /* SWRevealViewController */,
 				CDDED92A219968E200CCDDB3 /* AppDelegate.swift */,
-				CDDED92C219968E200CCDDB3 /* ViewController.swift */,
+				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
 				CDDED92E219968E200CCDDB3 /* Main.storyboard */,
 				CDDED931219968E200CCDDB3 /* Assets.xcassets */,
 				CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */,
@@ -96,6 +111,7 @@
 				TargetAttributes = {
 					CDDED926219968E200CCDDB3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -135,8 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDDED92D219968E200CCDDB3 /* ViewController.swift in Sources */,
 				CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */,
+				CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */,
+				CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83LR657G4K;
 				INFOPLIST_FILE = Jam/Info.plist;
@@ -291,6 +309,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cooper.Jam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Jam/SWRevealViewController/Jam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83LR657G4K;
 				INFOPLIST_FILE = Jam/Info.plist;
@@ -309,6 +330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cooper.Jam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Jam/SWRevealViewController/Jam-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
