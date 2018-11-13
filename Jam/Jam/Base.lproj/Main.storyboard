@@ -66,15 +66,16 @@
             </objects>
             <point key="canvasLocation" x="51" y="-468"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Nav Controller-->
         <scene sceneID="KsR-zY-S8r">
             <objects>
-                <navigationController id="eby-Jd-zpe" sceneMemberID="viewController">
+                <navigationController id="eby-Jd-zpe" customClass="CustomNavController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hXN-30-bDZ">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="NavBar" destination="hXN-30-bDZ" id="fTy-WV-QkV"/>
                         <segue destination="ASR-uG-0hp" kind="relationship" relationship="rootViewController" id="BWJ-f3-SWF"/>
                     </connections>
                 </navigationController>
@@ -85,6 +86,7 @@
         <!--Main View Controller-->
         <scene sceneID="GSO-ps-dkn">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdU-4Z-lh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Main View Controller" id="ASR-uG-0hp" customClass="MainViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="FfZ-JN-NC2">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
@@ -93,14 +95,11 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fc1-7a-6nd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xDL-Qo-xpy">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Kqa-vc-ggB"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="xDL-Qo-xpy"/>
                     <connections>
-                        <outlet property="menuButton" destination="Kqa-vc-ggB" id="0Eu-sR-utv"/>
+                        <outlet property="NavItem" destination="xDL-Qo-xpy" id="FFU-vn-JSC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xdU-4Z-lh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="436"/>
         </scene>

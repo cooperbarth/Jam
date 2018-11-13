@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD33AAEB219AAAFC00C70266 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */; };
 		CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF393219A14E50047CB7F /* MainViewController.swift */; };
 		CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */; };
 		CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDED92A219968E200CCDDB3 /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		CD6AF393219A14E50047CB7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD6AF396219A1FAA0047CB7F /* Jam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jam-Bridging-Header.h"; sourceTree = "<group>"; };
 		CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				CD6AF395219A1F8C0047CB7F /* SWRevealViewController */,
 				CDDED92A219968E200CCDDB3 /* AppDelegate.swift */,
+				CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */,
 				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
 				CDDED92E219968E200CCDDB3 /* Main.storyboard */,
 				CDDED931219968E200CCDDB3 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD33AAEB219AAAFC00C70266 /* CustomNavController.swift in Sources */,
 				CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */,
 				CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */,
 				CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */,
