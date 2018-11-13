@@ -15,6 +15,7 @@ class MainViewController: SWRevealViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpRevealViewController()
+        view.backgroundColor = .white
     }
 
     func setUpRevealViewController() {
@@ -22,7 +23,7 @@ class MainViewController: SWRevealViewController {
         if revealViewController != nil {
             menuButton.target = revealViewController
             menuButton.action = #selector(self.revealToggle(_:))
-            view.addGestureRecognizer(revealViewController!.panGestureRecognizer())
+            view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
         }
     }
 }
