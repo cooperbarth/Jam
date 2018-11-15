@@ -9,7 +9,6 @@
 import UIKit
 
 class CustomNavController: UINavigationController {
-
     @IBOutlet weak var NavBar: UINavigationBar!
 
     override func viewDidLoad() {

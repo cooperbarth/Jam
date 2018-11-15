@@ -44,6 +44,7 @@
 		CD6AF395219A1F8C0047CB7F /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CDDED92A219968E200CCDDB3 /* AppDelegate.swift */,
 				CD6AF398219A1FAA0047CB7F /* SWRevealViewController.h */,
 				CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */,
 				CD6AF396219A1FAA0047CB7F /* Jam-Bridging-Header.h */,
@@ -70,14 +71,13 @@
 		CDDED929219968E200CCDDB3 /* Jam */ = {
 			isa = PBXGroup;
 			children = (
-				CD6AF395219A1F8C0047CB7F /* SWRevealViewController */,
-				CDDED92A219968E200CCDDB3 /* AppDelegate.swift */,
-				CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */,
-				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
 				CDDED92E219968E200CCDDB3 /* Main.storyboard */,
+				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
+				CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */,
 				CDDED931219968E200CCDDB3 /* Assets.xcassets */,
 				CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */,
 				CDDED936219968E300CCDDB3 /* Info.plist */,
+				CD6AF395219A1F8C0047CB7F /* SWRevealViewController */,
 			);
 			path = Jam;
 			sourceTree = "<group>";

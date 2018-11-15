@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qEa-B8-kr8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuBar" id="qEa-B8-kr8">
                                         <rect key="frame" x="0.0" y="28" width="667" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qEa-B8-kr8" id="4yl-mK-RVy">
@@ -71,7 +71,6 @@
             <objects>
                 <navigationController id="eby-Jd-zpe" customClass="CustomNavController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hXN-30-bDZ">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -86,7 +85,6 @@
         <!--Main View Controller-->
         <scene sceneID="GSO-ps-dkn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xdU-4Z-lh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Main View Controller" id="ASR-uG-0hp" customClass="MainViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="FfZ-JN-NC2">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
@@ -100,6 +98,7 @@
                         <outlet property="NavItem" destination="xDL-Qo-xpy" id="FFU-vn-JSC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdU-4Z-lh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="436"/>
         </scene>
