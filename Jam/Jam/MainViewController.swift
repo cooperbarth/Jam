@@ -52,13 +52,20 @@ class MainViewController: SWRevealViewController {
 }
 
 class SongBubble: UIImageView {
-    var panGesture = UIPanGestureRecognizer()
+    var moveGesture = UIPanGestureRecognizer()
+    var touchGesture = UITapGestureRecognizer()
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
-        self.addGestureRecognizer(self.panGesture)
+        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedView(_ :)))
+        self.addGestureRecognizer(self.touchGesture)
+        self.moveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
+        self.addGestureRecognizer(self.moveGesture)
     }
-    
+
+    @objc func tappedView(_ sender: UITapGestureRecognizer) {
+        print("tapped")
+    }
+
     @objc func draggedView(_ sender: UIPanGestureRecognizer) {
         let bubbleView = sender.view!
         let translation = sender.translation(in: self)
