@@ -33,10 +33,12 @@ class MainViewController: SWRevealViewController {
     func createShape(loc: CGPoint) {
         let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
         let beatNodeView = SongBubble(image: beatNode)
+        
         beatNodeView.frame = CGRect(origin: loc, size: beatNode.size)
         beatNodeView.layer.cornerRadius = 10.0
         beatNodeView.layer.masksToBounds = true
         beatNodeView.isUserInteractionEnabled = true
+
         self.view.addSubview(beatNodeView)
     }
 
@@ -50,8 +52,18 @@ class MainViewController: SWRevealViewController {
 }
 
 class SongBubble: UIImageView {
+    var panGesture = UIPanGestureRecognizer()
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch: UITouch? = touches.first
+        self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
+        self.addGestureRecognizer(self.panGesture)
+    }
+    
+    @objc func draggedView(_ sender: UIPanGestureRecognizer) {
+        let bubbleView = sender.view!
+        let translation = sender.translation(in: self)
+        bubbleView.center = CGPoint(x: bubbleView.center.x + translation.x, y: bubbleView.center.y + translation.y)
+        sender.setTranslation(.zero, in: self)
     }
 }
 
