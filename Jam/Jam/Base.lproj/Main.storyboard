@@ -71,6 +71,7 @@
             <objects>
                 <navigationController id="eby-Jd-zpe" customClass="CustomNavController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hXN-30-bDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

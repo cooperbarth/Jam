@@ -1,5 +1,5 @@
 //
-//  RootViewController.swift
+//  MainViewController.swift
 //  Jam
 //
 //  Created by Cooper Barth on 11/12/18.
@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MediaPlayer
+import CoreGraphics
 
 class MainViewController: SWRevealViewController {
     @IBOutlet weak var NavItem: UINavigationItem!
@@ -30,10 +32,11 @@ class MainViewController: SWRevealViewController {
 
     func createShape(loc: CGPoint) {
         let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
-        let beatNodeView = UIImageView(image: beatNode)
+        let beatNodeView = SongBubble(image: beatNode)
         beatNodeView.frame = CGRect(origin: loc, size: beatNode.size)
         beatNodeView.layer.cornerRadius = 10.0
         beatNodeView.layer.masksToBounds = true
+        beatNodeView.isUserInteractionEnabled = true
         self.view.addSubview(beatNodeView)
     }
 
@@ -43,6 +46,12 @@ class MainViewController: SWRevealViewController {
         loc!.x -= nodeSize
         loc!.y -= nodeSize
         createShape(loc: loc!)
+    }
+}
+
+class SongBubble: UIImageView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch: UITouch? = touches.first
     }
 }
 
