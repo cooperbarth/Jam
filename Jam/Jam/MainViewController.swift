@@ -8,7 +8,6 @@
 
 import UIKit
 import MediaPlayer
-import CoreGraphics
 
 class MainViewController: SWRevealViewController {
     @IBOutlet weak var NavItem: UINavigationItem!
@@ -20,6 +19,17 @@ class MainViewController: SWRevealViewController {
         self.setUpUI()
         self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.addBubble(_ :)))
         self.view.addGestureRecognizer(self.touchGesture)
+    }
+
+    func setUpUI() {
+        self.view.isUserInteractionEnabled = true
+        self.view.backgroundColor = .white
+        let revealViewController: SWRevealViewController? = self.revealViewController()
+        if revealViewController != nil {
+            let image = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
+            self.NavItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: revealViewController, action: #selector(self.revealToggle(_:)))
+            self.view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
+        }
     }
 
     @objc func addBubble(_ sender: UITapGestureRecognizer) {
@@ -35,40 +45,6 @@ class MainViewController: SWRevealViewController {
         beatNodeView.isUserInteractionEnabled = true
 
         self.view.addSubview(beatNodeView)
-    }
-
-    func setUpUI() {
-        self.view.isUserInteractionEnabled = true
-        self.view.backgroundColor = .white
-        let revealViewController: SWRevealViewController? = self.revealViewController()
-        if revealViewController != nil {
-            let image = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
-            self.NavItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: revealViewController, action: #selector(self.revealToggle(_:)))
-            self.view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
-        }
-    }
-}
-
-class SongBubble: UIImageView {
-    var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-    var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-
-    override func didMoveToSuperview() {
-        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedView(_ :)))
-        self.addGestureRecognizer(self.touchGesture)
-        self.moveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
-        self.addGestureRecognizer(self.moveGesture)
-    }
-
-    @objc func tappedView(_ sender: UITapGestureRecognizer) {
-        print("tapped")
-    }
-
-    @objc func draggedView(_ sender: UIPanGestureRecognizer) {
-        let bubbleView = sender.view!
-        let translation = sender.translation(in: self)
-        bubbleView.center = CGPoint(x: bubbleView.center.x + translation.x, y: bubbleView.center.y + translation.y)
-        sender.setTranslation(.zero, in: self)
     }
 }
 
