@@ -21,6 +21,14 @@ class MainViewController: SWRevealViewController {
         self.view.addGestureRecognizer(self.touchGesture)
     }
 
+    func showCreateBubble() {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateBubblePopup") {
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.75)
+            self.present(vc, animated: false, completion: nil)
+        }
+    }
+
     func setUpUI() {
         self.view.isUserInteractionEnabled = true
         self.view.backgroundColor = .white
@@ -33,6 +41,7 @@ class MainViewController: SWRevealViewController {
     }
 
     @objc func addBubble(_ sender: UITapGestureRecognizer) {
+        self.showCreateBubble()
         let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
         let beatNodeView = SongBubble(image: beatNode)
         var loc = sender.location(in: self.view)
@@ -48,8 +57,8 @@ class MainViewController: SWRevealViewController {
     }
 }
 
-public extension UIImage {
-    public convenience init(color: UIColor, size: CGSize) {
+extension UIImage {
+    convenience init(color: UIColor, size: CGSize) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         color.setFill()

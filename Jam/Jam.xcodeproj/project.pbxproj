@@ -15,6 +15,7 @@
 		CDDED932219968E200CCDDB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDED931219968E200CCDDB3 /* Assets.xcassets */; };
 		CDDED935219968E300CCDDB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */; };
 		CDFB251021A008D6005A427A /* SongBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFB250F21A008D6005A427A /* SongBubble.swift */; };
+		CDFB251221A00A93005A427A /* CreateBubblePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFB251121A00A93005A427A /* CreateBubblePopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CDDED934219968E300CCDDB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDED936219968E300CCDDB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFB250F21A008D6005A427A /* SongBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBubble.swift; sourceTree = "<group>"; };
+		CDFB251121A00A93005A427A /* CreateBubblePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBubblePopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				CDDED92E219968E200CCDDB3 /* Main.storyboard */,
 				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
 				CDFB250F21A008D6005A427A /* SongBubble.swift */,
+				CDFB251121A00A93005A427A /* CreateBubblePopup.swift */,
 				CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */,
 				CDDED931219968E200CCDDB3 /* Assets.xcassets */,
 				CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 			files = (
 				CD33AAEB219AAAFC00C70266 /* CustomNavController.swift in Sources */,
 				CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */,
+				CDFB251221A00A93005A427A /* CreateBubblePopup.swift in Sources */,
 				CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */,
 				CDFB251021A008D6005A427A /* SongBubble.swift in Sources */,
 				CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */,
