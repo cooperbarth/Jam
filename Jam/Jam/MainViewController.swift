@@ -12,28 +12,23 @@ import CoreGraphics
 
 class MainViewController: SWRevealViewController {
     @IBOutlet weak var NavItem: UINavigationItem!
-    let nodeSize: CGFloat = 25.0
+    var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUp()
+        self.setUpUI()
+        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.addBubble(_ :)))
+        self.view.addGestureRecognizer(self.touchGesture)
     }
 
-    func setUp() {
-        self.view.isUserInteractionEnabled = true
-        self.view.backgroundColor = .white
-        let revealViewController: SWRevealViewController? = self.revealViewController()
-        if revealViewController != nil {
-            let image = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
-            self.NavItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: revealViewController, action: #selector(self.revealToggle(_:)))
-            view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
-        }
-    }
-
-    func createShape(loc: CGPoint) {
+    @objc func addBubble(_ sender: UITapGestureRecognizer) {
         let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
         let beatNodeView = SongBubble(image: beatNode)
-        
+        var loc = sender.location(in: self.view)
+        loc.x -= nodeSize
+        loc.y -= nodeSize
+
         beatNodeView.frame = CGRect(origin: loc, size: beatNode.size)
         beatNodeView.layer.cornerRadius = 10.0
         beatNodeView.layer.masksToBounds = true
@@ -42,20 +37,23 @@ class MainViewController: SWRevealViewController {
         self.view.addSubview(beatNodeView)
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch: UITouch? = touches.first
-        var loc = touch?.location(in: self.view)
-        loc!.x -= nodeSize
-        loc!.y -= nodeSize
-        createShape(loc: loc!)
+    func setUpUI() {
+        self.view.isUserInteractionEnabled = true
+        self.view.backgroundColor = .white
+        let revealViewController: SWRevealViewController? = self.revealViewController()
+        if revealViewController != nil {
+            let image = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
+            self.NavItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: revealViewController, action: #selector(self.revealToggle(_:)))
+            self.view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
+        }
     }
 }
 
 class SongBubble: UIImageView {
-    var moveGesture = UIPanGestureRecognizer()
-    var touchGesture = UITapGestureRecognizer()
+    var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
+    var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func didMoveToSuperview() {
         self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedView(_ :)))
         self.addGestureRecognizer(self.touchGesture)
         self.moveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
