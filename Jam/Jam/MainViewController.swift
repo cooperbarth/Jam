@@ -9,24 +9,21 @@
 import UIKit
 import MediaPlayer
 
-class MainViewController: SWRevealViewController {
+class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var NavItem: UINavigationItem!
     var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
+    static var songPlayer = MPMusicPlayerController.applicationMusicPlayer
+    static var mostRecentView: SongBubble = SongBubble()
+    static var mostRecentTap: CGPoint = CGPoint()
+    static var v: UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpUI()
-        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.addBubble(_ :)))
+        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.showCreateBubble(_ :)))
         self.view.addGestureRecognizer(self.touchGesture)
-    }
-
-    func showCreateBubble() {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateBubblePopup") {
-            vc.modalPresentationStyle = .overCurrentContext
-            vc.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.75)
-            self.present(vc, animated: false, completion: nil)
-        }
+        MainViewController.v = self.view
     }
 
     func setUpUI() {
@@ -40,20 +37,17 @@ class MainViewController: SWRevealViewController {
         }
     }
 
-    @objc func addBubble(_ sender: UITapGestureRecognizer) {
-        self.showCreateBubble()
-        let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
-        let beatNodeView = SongBubble(image: beatNode)
+    @objc func showCreateBubble(_ sender: UITapGestureRecognizer) {
         var loc = sender.location(in: self.view)
         loc.x -= nodeSize
         loc.y -= nodeSize
+        MainViewController.mostRecentTap = loc
 
-        beatNodeView.frame = CGRect(origin: loc, size: beatNode.size)
-        beatNodeView.layer.cornerRadius = 10.0
-        beatNodeView.layer.masksToBounds = true
-        beatNodeView.isUserInteractionEnabled = true
-
-        self.view.addSubview(beatNodeView)
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateBubblePopup") {
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.75)
+            self.present(vc, animated: false, completion: nil)
+        }
     }
 }
 

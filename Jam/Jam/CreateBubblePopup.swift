@@ -7,16 +7,49 @@
 //
 
 import UIKit
+import MediaPlayer
 
-class CreateBubblePopup: UIViewController {
+class CreateBubblePopup: UIViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var CreateView: UIView!
     var tapOutside: UITapGestureRecognizer = UITapGestureRecognizer()
+    let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpUI()
         self.tapOutside = UITapGestureRecognizer()
         self.view.addGestureRecognizer(self.tapOutside)
-        self.setUpUI()
+    }
+
+    @IBAction func addMusic(_ sender: Any) {
+        let songPicker = MPMediaPickerController(mediaTypes: .music)
+        songPicker.allowsPickingMultipleItems = false
+        songPicker.popoverPresentationController?.sourceView = self.view
+        songPicker.delegate = self
+        self.present(songPicker, animated: true, completion: nil)
+    }
+    
+    func addBubble() {
+        let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
+        let beatNodeView = SongBubble(image: beatNode)
+        
+        beatNodeView.frame = CGRect(origin: MainViewController.mostRecentTap, size: beatNode.size)
+        beatNodeView.layer.cornerRadius = 10.0
+        beatNodeView.layer.masksToBounds = true
+        beatNodeView.isUserInteractionEnabled = true
+
+        MainViewController.v.addSubview(beatNodeView)
+    }
+
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        MainViewController.songPlayer.setQueue(with: mediaItemCollection)
+        mediaPicker.dismiss(animated: true, completion: nil)
+        MainViewController.songPlayer.play()
+        self.addBubble()
+    }
+
+    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        mediaPicker.dismiss(animated: true, completion: nil)
     }
 
     func setUpUI() {

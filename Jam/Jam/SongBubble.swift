@@ -9,20 +9,35 @@
 import UIKit
 
 class SongBubble: UIImageView {
+    var singleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-    var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-    
+
     override func didMoveToSuperview() {
-        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedView(_ :)))
-        self.addGestureRecognizer(self.touchGesture)
+        self.setUpTaps()
+    }
+
+    func setUpTaps() {
+        self.singleTouchGesture = UITapGestureRecognizer(target: self, action: #selector(self.singleTappedView(_ :)))
+        self.singleTouchGesture.numberOfTapsRequired = 1
+        self.addGestureRecognizer(self.singleTouchGesture)
+
+        self.doubleTouchGesture = UITapGestureRecognizer(target: self, action: #selector(self.doubleTappedView(_ :)))
+        self.doubleTouchGesture.numberOfTapsRequired = 2
+        self.addGestureRecognizer(self.doubleTouchGesture)
+
         self.moveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_ :)))
         self.addGestureRecognizer(self.moveGesture)
     }
-    
-    @objc func tappedView(_ sender: UITapGestureRecognizer) {
-        print("tapped")
+
+    @objc func singleTappedView(_ sender: UITapGestureRecognizer) {
+        print("single tapped")
     }
     
+    @objc func doubleTappedView(_ sender: UITapGestureRecognizer) {
+        print("double tapped")
+    }
+
     @objc func draggedView(_ sender: UIPanGestureRecognizer) {
         let bubbleView = sender.view!
         let translation = sender.translation(in: self)
