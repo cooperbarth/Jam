@@ -10,13 +10,13 @@ import UIKit
 import MediaPlayer
 
 class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegate {
+    static var v: UIView = UIView()
     @IBOutlet weak var NavItem: UINavigationItem!
     var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
-    static var songPlayer = MPMusicPlayerController.applicationMusicPlayer
+    static var songPlayers: [Int: MPMusicPlayerController] = [:]
     static var mostRecentView: SongBubble = SongBubble()
     static var mostRecentTap: CGPoint = CGPoint()
-    static var v: UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
