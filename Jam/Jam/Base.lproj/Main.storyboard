@@ -32,7 +32,7 @@
         <!--Sidebar-->
         <scene sceneID="zfq-Wi-LIj">
             <objects>
-                <viewController title="Sidebar" id="afv-qZ-fer" sceneMemberID="viewController">
+                <viewController title="Sidebar" id="afv-qZ-fer" customClass="SideMenu" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kqy-jL-efC">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuBar" id="qEa-B8-kr8">
                                         <rect key="frame" x="0.0" y="28" width="667" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qEa-B8-kr8" id="4yl-mK-RVy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qEa-B8-kr8" id="4yl-mK-RVy" customClass="SideMenuCell" customModule="Jam" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="667" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -61,6 +61,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rsv-G9-N7A"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="x06-go-J8b" id="bU8-FB-qtB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j8-ix-kJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

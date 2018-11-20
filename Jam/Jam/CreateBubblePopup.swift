@@ -29,28 +29,24 @@ class CreateBubblePopup: UIViewController, MPMediaPickerControllerDelegate {
         self.present(songPicker, animated: true, completion: nil)
     }
 
-    func addBubble() -> Int {
+    func addBubble() {
         let beatNode = UIImage(color: .red, size: CGSize(width: nodeSize, height: nodeSize))
         let beatNodeView = SongBubble(image: beatNode)
-        
+
         beatNodeView.frame = CGRect(origin: MainViewController.mostRecentTap, size: beatNode.size)
         beatNodeView.layer.cornerRadius = 10.0
         beatNodeView.layer.masksToBounds = true
         beatNodeView.isUserInteractionEnabled = true
-        beatNodeView.identifier = MainViewController.songPlayers.count
 
         MainViewController.v.addSubview(beatNodeView)
-        return beatNodeView.identifier
     }
 
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        let identifier = self.addBubble()
-        MainViewController.songPlayers[identifier] = MPMusicPlayerController.applicationQueuePlayer
+        self.addBubble()
         mediaPicker.dismiss(animated: true, completion: nil)
 
-        MainViewController.songPlayers[identifier]?.setQueue(with: mediaItemCollection)
-        MainViewController.songPlayers[identifier]?.play()
-        print(MainViewController.songPlayers)
+        MainViewController.songPlayer.setQueue(with: mediaItemCollection)
+        MainViewController.songPlayer.play()
     }
 
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {

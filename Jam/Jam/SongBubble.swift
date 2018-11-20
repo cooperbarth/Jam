@@ -12,7 +12,6 @@ class SongBubble: UIImageView {
     var singleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-    var identifier: Int = 0
 
     override func didMoveToSuperview() {
         self.setUpTaps()

@@ -11,12 +11,17 @@ import MediaPlayer
 
 class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegate {
     static var v: UIView = UIView()
+    let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
     @IBOutlet weak var NavItem: UINavigationItem!
     var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-    let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
-    static var songPlayers: [Int: MPMusicPlayerController] = [:]
+
+    static var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
+
     static var mostRecentView: SongBubble = SongBubble()
     static var mostRecentTap: CGPoint = CGPoint()
+
+    var songCount: Int = 0
+    var beatCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +29,7 @@ class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegat
         self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.showCreateBubble(_ :)))
         self.view.addGestureRecognizer(self.touchGesture)
         MainViewController.v = self.view
+        self.firstTimeLaunch() ? self.tutorial() : nil
     }
 
     func setUpUI() {
@@ -48,6 +54,20 @@ class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegat
             vc.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.75)
             self.present(vc, animated: false, completion: nil)
         }
+    }
+
+    func firstTimeLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.string(forKey: "isAppAlreadyLaunchedOnce") != nil {
+            return true
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            return false
+        }
+    }
+
+    func tutorial() {
+        //tutorial!
     }
 }
 
