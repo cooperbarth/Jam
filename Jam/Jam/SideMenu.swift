@@ -9,7 +9,7 @@ class SideMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, MP
                     "Studio",
                     "Share",
                     "Settings"]
-    var musicChosen: Bool = false
+    static var musicChosen: Bool = false
     let songBubbleSize: CGFloat = UIScreen.main.bounds.width / 15
 
     override func viewDidLoad() {
@@ -62,14 +62,14 @@ class SideMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, MP
     }
 
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        if (musicChosen) {
+        if (SideMenu.musicChosen) {
             MainViewController.musicNode.songPlayer.setQueue(with: mediaItemCollection)
             MainViewController.musicNode.songPlayer.play()
         } else {
             let newBubble = self.addBubble()
             newBubble.songPlayer.setQueue(with: mediaItemCollection)
             newBubble.songPlayer.play()
-            self.musicChosen = true
+            SideMenu.musicChosen = true
         }
         mediaPicker.dismiss(animated: true, completion: nil)
     }
@@ -88,8 +88,8 @@ class SideMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, MP
         beatNodeView.layer.masksToBounds = true
         beatNodeView.isUserInteractionEnabled = true
 
-        MainViewController.v.addSubview(beatNodeView)
         MainViewController.musicNode = beatNodeView
+        MainViewController.v.addSubview(beatNodeView)
         return beatNodeView
     }
 }

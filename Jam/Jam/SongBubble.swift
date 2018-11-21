@@ -10,10 +10,9 @@ import UIKit
 import MediaPlayer
 
 class SongBubble: UIImageView {
-    var singleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    var longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
     var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
-
     var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
 
     override func didMoveToSuperview() {
@@ -21,9 +20,10 @@ class SongBubble: UIImageView {
     }
 
     func setUpTaps() {
-        self.singleTouchGesture = UITapGestureRecognizer(target: self, action: #selector(self.singleTappedView(_ :)))
-        self.singleTouchGesture.numberOfTapsRequired = 1
-        self.addGestureRecognizer(self.singleTouchGesture)
+        self.longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.fireLongPress(_:)))
+        self.longPressGesture.allowableMovement = 20
+        self.longPressGesture.minimumPressDuration = 0.35
+        self.addGestureRecognizer(self.longPressGesture)
 
         self.doubleTouchGesture = UITapGestureRecognizer(target: self, action: #selector(self.doubleTappedView(_ :)))
         self.doubleTouchGesture.numberOfTapsRequired = 2
@@ -33,12 +33,16 @@ class SongBubble: UIImageView {
         self.addGestureRecognizer(self.moveGesture)
     }
 
-    @objc func singleTappedView(_ sender: UITapGestureRecognizer) {
-        print("single tapped")
+    @objc func fireLongPress(_ sender: UILongPressGestureRecognizer) {
+        if (sender.state == UIGestureRecognizer.State.began) {
+            print("Long Press!")
+        }
     }
-    
+
     @objc func doubleTappedView(_ sender: UITapGestureRecognizer) {
-        print("double tapped")
+        self.songPlayer.stop()
+        SideMenu.musicChosen = false
+        self.removeFromSuperview()
     }
 
     @objc func draggedView(_ sender: UIPanGestureRecognizer) {
