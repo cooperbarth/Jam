@@ -14,9 +14,11 @@ class SongBubble: UIImageView {
     var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
     var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
+    var masterVolumeSlider: MPVolumeView = MPVolumeView(frame: .zero)
 
     override func didMoveToSuperview() {
         self.setUpTaps()
+        MainViewController.v.addSubview(self.masterVolumeSlider)
     }
 
     func setUpTaps() {
@@ -36,6 +38,9 @@ class SongBubble: UIImageView {
     @objc func fireLongPress(_ sender: UILongPressGestureRecognizer) {
         if (sender.state == UIGestureRecognizer.State.began) {
             print("Long Press!")
+            if let view = masterVolumeSlider.subviews.first as? UISlider {
+                view.value += 0.5
+            }
         }
     }
 
