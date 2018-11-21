@@ -9,25 +9,16 @@
 import UIKit
 import MediaPlayer
 
-class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegate {
-    static var v: UIView = UIView()
-    let nodeSize: CGFloat = UIScreen.main.bounds.width / 20
+class MainViewController: SWRevealViewController {
     @IBOutlet weak var NavItem: UINavigationItem!
-    var touchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    static var v: UIView = UIView()
 
-    static var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
-
-    static var mostRecentView: SongBubble = SongBubble()
+    static var musicNode: SongBubble = SongBubble()
     static var mostRecentTap: CGPoint = CGPoint()
-
-    var songCount: Int = 0
-    var beatCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpUI()
-        self.touchGesture = UITapGestureRecognizer(target: self, action: #selector(self.showCreateBubble(_ :)))
-        self.view.addGestureRecognizer(self.touchGesture)
         MainViewController.v = self.view
         self.firstTimeLaunch() ? self.tutorial() : nil
     }
@@ -40,19 +31,6 @@ class MainViewController: SWRevealViewController, MPMediaPickerControllerDelegat
             let image = UIImage(named: "Menu")?.withRenderingMode(.alwaysOriginal)
             self.NavItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: revealViewController, action: #selector(self.revealToggle(_:)))
             self.view.addGestureRecognizer(revealViewController!.tapGestureRecognizer())
-        }
-    }
-
-    @objc func showCreateBubble(_ sender: UITapGestureRecognizer) {
-        var loc = sender.location(in: self.view)
-        loc.x -= nodeSize
-        loc.y -= nodeSize
-        MainViewController.mostRecentTap = loc
-
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateBubblePopup") {
-            vc.modalPresentationStyle = .overCurrentContext
-            vc.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.75)
-            self.present(vc, animated: false, completion: nil)
         }
     }
 

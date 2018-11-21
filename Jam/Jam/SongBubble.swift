@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class SongBubble: UIImageView {
     var singleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
+
+    var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
 
     override func didMoveToSuperview() {
         self.setUpTaps()

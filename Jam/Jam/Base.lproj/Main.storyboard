@@ -106,46 +106,5 @@
             </objects>
             <point key="canvasLocation" x="752" y="436"/>
         </scene>
-        <!--Create Bubble Popup-->
-        <scene sceneID="buS-zj-9gb">
-            <objects>
-                <viewController storyboardIdentifier="CreateBubblePopup" id="LtZ-cb-Bsn" customClass="CreateBubblePopup" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iaV-hB-cho">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fi-2C-TOa">
-                                <rect key="frame" x="213.5" y="123.5" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="7fA-VU-A0S"/>
-                                    <constraint firstAttribute="height" constant="128" id="OV5-jp-fgq"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaY-Fq-yzE">
-                                <rect key="frame" x="297" y="172.5" width="73" height="30"/>
-                                <state key="normal" title="Add Music"/>
-                                <connections>
-                                    <action selector="addMusic:" destination="LtZ-cb-Bsn" eventType="touchUpInside" id="LMj-PD-cnO"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="eaY-Fq-yzE" firstAttribute="centerY" secondItem="iaV-hB-cho" secondAttribute="centerY" id="4T7-7F-ufU"/>
-                            <constraint firstItem="eaY-Fq-yzE" firstAttribute="centerX" secondItem="5Fi-2C-TOa" secondAttribute="centerX" id="ZGM-Jd-flT"/>
-                            <constraint firstItem="5Fi-2C-TOa" firstAttribute="centerY" secondItem="iaV-hB-cho" secondAttribute="centerY" id="fNZ-Op-HqH"/>
-                            <constraint firstItem="5Fi-2C-TOa" firstAttribute="centerX" secondItem="iaV-hB-cho" secondAttribute="centerX" id="zrZ-Ci-JFZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="HlG-Zd-ebe"/>
-                    </view>
-                    <connections>
-                        <outlet property="CreateView" destination="5Fi-2C-TOa" id="cSh-yz-0GD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pwH-J4-SMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="752" y="1207"/>
-        </scene>
     </scenes>
 </document>

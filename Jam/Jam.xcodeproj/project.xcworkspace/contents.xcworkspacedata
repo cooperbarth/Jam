@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Jam.xcodeproj">
+      location = "group:/Users/coop1/Documents/Projects/Jam/Jam/Jam/SideMenuCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/coop1/Documents/Projects/Jam/Jam/Jam/SideMenu.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/coop1/Documents/Projects/Jam/Jam/Jam/BeatBubble.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

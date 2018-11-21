@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CD33AAEB219AAAFC00C70266 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */; };
+		CD42D28221A4D8E200E226F6 /* BeatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D27F21A4D8E200E226F6 /* BeatBubble.swift */; };
+		CD42D28321A4D8E200E226F6 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D28021A4D8E200E226F6 /* SideMenuCell.swift */; };
+		CD42D28421A4D8E200E226F6 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42D28121A4D8E200E226F6 /* SideMenu.swift */; };
 		CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF393219A14E50047CB7F /* MainViewController.swift */; };
 		CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */; };
 		CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDED92A219968E200CCDDB3 /* AppDelegate.swift */; };
@@ -15,11 +18,13 @@
 		CDDED932219968E200CCDDB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDED931219968E200CCDDB3 /* Assets.xcassets */; };
 		CDDED935219968E300CCDDB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */; };
 		CDFB251021A008D6005A427A /* SongBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFB250F21A008D6005A427A /* SongBubble.swift */; };
-		CDFB251221A00A93005A427A /* CreateBubblePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFB251121A00A93005A427A /* CreateBubblePopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
+		CD42D27F21A4D8E200E226F6 /* BeatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeatBubble.swift; path = /Users/coop1/Documents/Projects/Jam/Jam/Jam/BeatBubble.swift; sourceTree = "<absolute>"; };
+		CD42D28021A4D8E200E226F6 /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SideMenuCell.swift; path = /Users/coop1/Documents/Projects/Jam/Jam/Jam/SideMenuCell.swift; sourceTree = "<absolute>"; };
+		CD42D28121A4D8E200E226F6 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SideMenu.swift; path = /Users/coop1/Documents/Projects/Jam/Jam/Jam/SideMenu.swift; sourceTree = "<absolute>"; };
 		CD6AF393219A14E50047CB7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD6AF396219A1FAA0047CB7F /* Jam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jam-Bridging-Header.h"; sourceTree = "<group>"; };
 		CD6AF397219A1FAA0047CB7F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -31,7 +36,6 @@
 		CDDED934219968E300CCDDB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDED936219968E300CCDDB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFB250F21A008D6005A427A /* SongBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBubble.swift; sourceTree = "<group>"; };
-		CDFB251121A00A93005A427A /* CreateBubblePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBubblePopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 			children = (
 				CDDED92E219968E200CCDDB3 /* Main.storyboard */,
 				CD6AF393219A14E50047CB7F /* MainViewController.swift */,
+				CD42D28121A4D8E200E226F6 /* SideMenu.swift */,
+				CD42D28021A4D8E200E226F6 /* SideMenuCell.swift */,
 				CDFB250F21A008D6005A427A /* SongBubble.swift */,
-				CDFB251121A00A93005A427A /* CreateBubblePopup.swift */,
+				CD42D27F21A4D8E200E226F6 /* BeatBubble.swift */,
 				CD33AAEA219AAAFC00C70266 /* CustomNavController.swift */,
 				CDDED931219968E200CCDDB3 /* Assets.xcassets */,
 				CDDED933219968E300CCDDB3 /* LaunchScreen.storyboard */,
@@ -161,11 +167,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD33AAEB219AAAFC00C70266 /* CustomNavController.swift in Sources */,
+				CD42D28221A4D8E200E226F6 /* BeatBubble.swift in Sources */,
 				CDDED92B219968E200CCDDB3 /* AppDelegate.swift in Sources */,
-				CDFB251221A00A93005A427A /* CreateBubblePopup.swift in Sources */,
+				CD42D28421A4D8E200E226F6 /* SideMenu.swift in Sources */,
 				CD6AF394219A14E50047CB7F /* MainViewController.swift in Sources */,
 				CDFB251021A008D6005A427A /* SongBubble.swift in Sources */,
 				CD6AF399219A1FAA0047CB7F /* SWRevealViewController.m in Sources */,
+				CD42D28321A4D8E200E226F6 /* SideMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
