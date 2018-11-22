@@ -10,7 +10,7 @@ class SideMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, MP
                     "Share",
                     "Settings"]
     static var musicChosen: Bool = false
-    let songBubbleSize: CGFloat = UIScreen.main.bounds.width / 15
+    let songBubbleSize: CGFloat = UIScreen.main.bounds.width * (2/15)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,7 @@ class SideMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, MP
             MainViewController.musicNode.songPlayer.play()
         } else {
             let newBubble = self.addBubble()
+            newBubble.songPlayer.repeatMode = .one
             newBubble.songPlayer.setQueue(with: mediaItemCollection)
             newBubble.songPlayer.play()
             SideMenu.musicChosen = true
