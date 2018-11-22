@@ -15,11 +15,13 @@ class SongBubble: UIImageView {
     var doubleTouchGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     var moveGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
     var pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer()
+    var rotationGesture: UIRotationGestureRecognizer = UIRotationGestureRecognizer()
 
     var songPlayer: MPMusicPlayerController = MPMusicPlayerController.applicationQueuePlayer
     var masterVolumeSlider: MPVolumeView = MPVolumeView(frame: .zero)
 
     var lastSize: CGSize = CGSize()
+    var playback: Float = 1.0
 
     override func didMoveToSuperview() {
         self.setUpTaps()
@@ -46,6 +48,9 @@ class SongBubble: UIImageView {
 
         self.pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.firePinch(_:)))
         self.addGestureRecognizer(self.pinchGesture)
+
+        self.rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(self.fireRotation(_:)))
+        self.addGestureRecognizer(self.rotationGesture)
     }
 
     @objc func fireLongPress(_ sender: UILongPressGestureRecognizer) {
@@ -57,6 +62,7 @@ class SongBubble: UIImageView {
             self.songPlayer.pause()
         } else {
             self.songPlayer.play()
+            self.songPlayer.currentPlaybackRate = playback
         }
     }
 
@@ -103,5 +109,16 @@ class SongBubble: UIImageView {
         if (sender.state == UIGestureRecognizer.State.ended) {
             self.lastSize = self.frame.size
         }
+    }
+
+    @objc func fireRotation(_ sender: UIRotationGestureRecognizer) {
+        let rot = sender.rotation
+        if (songPlayer.currentPlaybackRate >= 2.0 && rot > 0) {return}
+        if (songPlayer.currentPlaybackRate <= 0.5 && rot < 0) {return}
+        songPlayer.currentPlaybackRate += 0.1 * Float(rot)
+        if (songPlayer.currentPlaybackRate < 0.5) {songPlayer.currentPlaybackRate = 0.5}
+        if (songPlayer.currentPlaybackRate > 2.0) {songPlayer.currentPlaybackRate = 2.0}
+        self.playback = songPlayer.currentPlaybackRate
+        self.transform = self.transform.rotated(by: rot)
     }
 }
